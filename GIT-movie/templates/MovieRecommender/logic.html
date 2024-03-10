@@ -1,0 +1,38 @@
+{% extends 'MovieRecommender/base.html' %}
+{% block title %}Home{% endblock title %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+{% endblock css %}
+{% block content %}
+<section class="pt-5 pb-5">
+    {% if messages %}
+        {% for msg in messages %}
+            {% if msg %}
+                <div class="alert alert-{{ msg.tags }} font-weight-bold text-primary w-50 ml-3">{{ msg }}</div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3 text-light">Movie List</h3>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    {% for item in movie %}
+                        <div class="col-4 mb-2">
+                            <div class="card" style="width: 22rem">
+                                <img class="card-img-top" src="{{ item.image.url }}" alt="Card image cap" height="250px" width="200px">
+                                <div class="card-footer">
+                                    <small class="text-muted">{{ item.genres }}</small>
+                                    <small class="text-muted">{{ item.movieduration }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

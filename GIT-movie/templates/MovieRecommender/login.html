@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Time</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <!-- Bootstrap CSS link or other CSS dependencies -->
+</head>
+
+<body>
+    <header class="showcase">
+        <div class="showcase-content">
+            <div class="formm">
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <h1>Sign In</h1>
+                    <div class="info">
+                        <input class="email" type="text" placeholder="Username" name="username">
+                        <input class="email" type="password" placeholder="Password" name="password">
+                    </div>
+                    <div class="btn">
+                        <button class="btn-primary" type="submit">Sign In</button>
+                    </div>
+                    <div class="help">
+                        <div>
+                            <input value="true" type="checkbox" name="remember_me"><label>Remember me</label>
+                        </div>
+                        <a href="#">Need Help ?</a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="fcbk">
+                <a href="https://facebook.com">
+                    <img src="https://i.ibb.co/LrVMXNR/social-fb.png" alt="Facebook">
+                </a>
+                <p>Login with Facebook</p>
+            </div>
+            <div class="signup">
+                <p>New to Movie Time ?</p>
+                <a href="{% url 'signup' %}">Sign up now</a>
+            </div>
+            <div class="more">
+                <p>
+                    Want to go back to the HOME page ?<a href="{% url 'home' %}">HOME</a>
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <footer>
+        <div class="ftr-content">
+            <div class="contact">
+                <a href="#">Questions? Contact us.</a>
+            </div>
+            <div class="ftr">
+                <a href="#">Gift Card Terms</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy Statement</a>
+            </div>
+            <div class="select">
+                <select>
+                    <option>English</option>
+                    <option>العربية</option>
+                    <option>Français</option>
+                </select>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and other JS dependencies -->
+</body>
+</html>

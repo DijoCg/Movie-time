@@ -1,0 +1,51 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+{% block content %}
+<div class="container p-5 mb-5 wrapper">
+    {% if messages %}
+        {% for msg in messages %}
+            {% if msg %}
+                <div class="alert alert-{{ msg.tags }} alert-dismissible fade show font-weight-bold text-primary w-50 ml-3 mt-5">
+                    {{ msg }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    <h2>Registration</h2>
+    <form action="{% url 'signup' %}" method="post" novalidate>
+        {% csrf_token %}
+        <div class="form">
+            <div class="info">
+                <input type="text" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="info">
+                <input type="text" name="first_name" placeholder="Enter your first name" required>
+            </div>
+            <div class="info">
+                <input type="text" name="last_name" placeholder="Enter your last name" required>
+            </div>
+            <div class="info">
+                <input type="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="info">
+                <input type="password" name="password1" placeholder="Create password" required>
+            </div>
+            <div class="info">
+                <input type="password" name="password2" placeholder="Confirm password" required>
+            </div>
+        </div>
+        <br>
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+    <div class="text">
+        <h3>Already have an account? <a href="{% url 'login' %}">Login now</a></h3>
+        <h3>Want to go Back ! <a href="{% url 'home' %}">HOME</a></h3>
+
+    </div>
+</div>
+{% endblock content %}

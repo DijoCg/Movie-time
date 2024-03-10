@@ -1,0 +1,54 @@
+$body: #09000b;
+$nunito: "Nunito", sans-serif;
+$dark: #0a0a0a;
+
+body {
+  background-color: $body;
+  font-family: $nunito;
+}
+
+.container {
+  padding: 100px 0;
+  background-image: url('media/movie_image/films.jpg'); /* Replace 'path_to_your_image.jpg' with the actual path to your image */
+  background-size: cover; /* Ensure the background image covers the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+}
+
+.profile {
+  max-width: 300px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center; /* Center align the profile content */
+}
+
+.profile h2 {
+  color: $dark;
+}
+
+.profile p {
+  color: rgba($dark, 0.8);
+}
+
+.profile .image {
+  width: 150px; /* Set the width and height to make the image smaller */
+  height: 150px;
+  border-radius: 50%; /* Make the image round */
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden; /* Hide overflow to ensure the round shape */
+  box-shadow: 0 3px 15px rgba($dark, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.profile .image img {
+  width: 100%; /* Make the image fill the container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.profile:hover .image {
+  transform: scale(1.1); /* Adjust the scale on hover */
+}
